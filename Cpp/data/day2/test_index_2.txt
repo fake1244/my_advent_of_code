@@ -1,0 +1,4 @@
+2,1,test_cases/day2_test1.txt,2
+2,1,day2_input.txt,421
+2,2,test_cases/day2_test1.txt,4
+2,2,day2_input.txt,476
