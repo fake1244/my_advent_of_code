@@ -1,0 +1,3 @@
+4,1,test_cases/day4_test1.txt,4
+4,1,test_cases/day4_test2.txt,18
+4,1,day4_input.txt,2571
