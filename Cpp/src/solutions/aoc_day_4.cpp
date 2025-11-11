@@ -94,6 +94,32 @@ bool AocDay4::is_xmas(char c1, char c2, char c3, char c4)
     return (c1 == 'X' && c2 == 'M' && c3 == 'A' && c4 == 'S') || (c4 == 'X' && c3 == 'M' && c2 == 'A' && c1 == 'S');
 }
 
+int AocDay4::count_2mas(vector<vector<char>> data)
+{
+    int count { 0 };
+    int n = data.size();
+    int m = data[0].size();
+
+    for (int i {}; i < n - 2; ++i){
+        for (int j {}; j < m - 2; ++j){
+            if (is_2mas(data[i][j], data[i][j+2], data[i+1][j+1], data[i+2][j], data[i+2][j+2]))
+                count++;
+        }
+    }
+
+    return count;
+}
+
+bool AocDay4::is_2mas(char c1, char c2, char c3, char c4, char c5)
+{
+    return is_mas(c1, c3, c5) && is_mas(c2, c3, c4) ;
+}
+
+bool AocDay4::is_mas(char c1, char c2, char c3)
+{
+    return (c1 == 'M' && c2 == 'A' && c3 == 'S') || (c3 == 'M' && c2 == 'A' && c1 == 'S');
+}
+
 string AocDay4::part1(string filename, vector<string> extra_args){
     auto data = read_input(filename);
     int count { 0 };
@@ -107,5 +133,10 @@ string AocDay4::part1(string filename, vector<string> extra_args){
 
 string AocDay4::part2(string filename, vector<string> extra_args)
 {
-    return "0";
+    auto data = read_input(filename);
+    int count { 0 };
+
+    count += count_2mas(data);
+
+    return to_string(count);
 }
